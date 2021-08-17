@@ -4,6 +4,7 @@ const checkUrlQuery = require('./checkUrl');
 const checkUserUrlQuery = require('./checkUserUrl');
 const getShortUrlQuery = require('./getShortUrl');
 const getOriginalUrlQuery = require('./getOriginalUrl');
+const checkUserQuery = require('./checkUser');
 
 module.exports = {
   addUserQuery,
@@ -12,4 +13,5 @@ module.exports = {
   checkUserUrlQuery,
   getShortUrlQuery,
   getOriginalUrlQuery,
+  checkUserQuery,
 };
