@@ -2,13 +2,22 @@ const { Pool } = require('pg');
 
 require('env2')('config.env');
 
-const { DB_URL } = process.env;
+const {
+  NODE_ENV, DEV_DB_URL, DB_URL, TEST_DB_URL,
+} = process.env;
 
-if (!DB_URL) throw new Error('There is no Database');
+let dbUrl = '';
+
+switch (NODE_ENV) {
+  case 'production': dbUrl = DB_URL; break;
+  case 'development': dbUrl = DEV_DB_URL; break;
+  case 'testing': dbUrl = TEST_DB_URL; break;
+  default: throw new Error('There is no Database');
+}
 
 const options = {
-  connectionString: DB_URL,
-  ssl: false,
+  connectionString: dbUrl,
+  ssl: NODE_ENV === 'production',
 };
 
 module.exports = new Pool(options);
