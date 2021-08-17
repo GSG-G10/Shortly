@@ -5,7 +5,7 @@ const getOriginalUrlQuery = (shortUrl) => {
     text: 'SELECT LONG_URL FROM URLS WHERE SHORT_URL = $1',
     values: [shortUrl],
   };
-  return connection.query(sqlScript);
+  return connection.query(sqlScript).then((data) => data.rows[0].short_url);
 };
 
 module.exports = getOriginalUrlQuery;
