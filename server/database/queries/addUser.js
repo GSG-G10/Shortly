@@ -5,7 +5,7 @@ const addUserQuery = (username) => {
     text: 'INSERT INTO USERS VALUES ($1);',
     values: [username],
   };
-  connection.query(sqlScript);
+  return connection.query(sqlScript);
 };
 
 module.exports = addUserQuery;
