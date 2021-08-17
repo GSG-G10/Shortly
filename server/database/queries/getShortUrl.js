@@ -5,7 +5,7 @@ const getShortUrlQuery = (userName) => {
     text: 'SELECT SHORT_URL FROM URLS WHERE USER_NAME = $1',
     values: [userName],
   };
-  return connection.query(sqlScript).then((data) => data.rows.length !== 0);
+  return connection.query(sqlScript);
 };
 
 module.exports = getShortUrlQuery;
