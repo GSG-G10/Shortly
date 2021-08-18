@@ -27,10 +27,10 @@
       </nav>
     </header>
     <main class="main">
+      <h3 class="welcome-user container"></h3>
       <!-- Login -->
       <section class="login container">
-        <form action="/user" method="post" class="login-form">
-         <div class="form-input-field">
+         <div class="form-input-field"> 
             <input
               class="login-form-input"
               type="text"
@@ -40,11 +40,11 @@
               required
             />
             <button class="login-form-btn" type="submit">Login</button>
-        </form>
+          </div>
       </section>
       <!-- Convert -->
-      <section id="convert" class="convert container">
-        <form class="convert-form" action="/short" method="post">
+      <section class="convert container">
+        <!-- <form class="convert-form" action="/short" method="post"> -->
           <div class="form-convert-field">
             <input
               class="convert-form-input"
@@ -56,7 +56,12 @@
             />
             <button class="convert-form-btn" type="submit">Short</button>
           </div>
-        </form>
+          
+      </section>
+      <section class="shorted-url">
+            <div class="url">
+              
+            </div>
       </section>
       <!-- URL List Table -->
       <section class="url-list" id="url-list">
@@ -97,5 +102,7 @@
             
       </section>
     </main>
+    <script src="./assest/js/main.js"></script>
+    <script src="./assest/js/dom.js"></script>
   </body>
 </html>

@@ -4,8 +4,9 @@ const {
 
 const userLogin = (req, res) => {
   const { userName } = req.body;
-  if (!/^[a-zA-Z]{3,10}[0-9]{0,10} {1}[a-zA-Z]{3,20}[0-9]{0,10}$/.test(userName)) res.status(400).send('Invalid userName');
-  addUserQuery(userName).then(() => res.status(200).send('User signed up')).catch(() => res.status(200).send('User logged in'));
+  if (!/^[a-zA-Z]{3,10}[0-9]{0,10} {1}[a-zA-Z]{3,20}[0-9]{0,10}$/.test(userName)) res.status(400).json({ massege: 'Invalid userName' });
+  console.log('User Name is: ', userName);
+  addUserQuery(userName).then(() => res.status(200).json({ massege: 'User signed up' })).catch(() => res.status(200).json({ massege:'User logged in' }));
 };
 
 const getUserLinks = (req, res) => {
@@ -38,8 +39,8 @@ const generateShortUrl = (urlLength) => {
 
 const shortenUrl = (req, res) => {
   const { userName, originalUrl } = req.body;
-  if (!/^[a-zA-Z]{3,10}[0-9]{0,10} {1}[a-zA-Z]{3,20}[0-9]{0,10}$/.test(userName)) res.status(400).send('Invalid userName');
-  if (!/^https{0,1}:\/\//.test(originalUrl)) res.status(400).send('Invalid Url');
+  if (!/^[a-zA-Z]{3,10}[0-9]{0,10} {1}[a-zA-Z]{3,20}[0-9]{0,10}$/.test(userName)) res.status(400).json({ massege: 'Invalid userName' });
+  if (!/^https{0,1}:\/\//.test(originalUrl)) res.status(400).json({ massege: 'Invalid Url' });
   checkUserUrlQuery(userName, originalUrl).then((data) => {
     if (data.length !== 0) res.status(200).json(data[0]);
     else {
