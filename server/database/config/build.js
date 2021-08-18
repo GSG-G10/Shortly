@@ -5,6 +5,7 @@ const { readFileSync } = require('fs');
 const connection = require('./connection');
 
 const sql = readFileSync(join(__dirname, 'database.sql')).toString();
+console.log(sql);
 
 module.exports = () => {
   connection
