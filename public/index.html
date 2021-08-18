@@ -1,12 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shortly</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-</body>
+    <link rel="stylesheet" href="./assest/style/style.css" />
+    <title>Shortly</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header-navbar-nav container">
+        <img src="./assest/images/logo.png" alt="" class="navbar-logo" />
+
+        <ul class="navbar-list">
+          <li class="navbar-list-item">
+            <a href="#" class="navbar-list-item-a"> Convert </a>
+          </li>
+          <li class="navbar-list-item">
+            <a href="#" class="navbar-list-item-a"> Url List </a>
+          </li>
+          <li class="navbar-list-item">
+            <a href="#" class="navbar-list-item-a"> Contact Us </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <!-- Login -->
+      <section class="login container">
+        <form action="/user" method="post" class="login-form">
+         <div class="form-input-field">
+            <input
+              class="login-form-input"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              required
+            />
+            <button class="login-form-btn" type="submit">Login</button>
+        </form>
+      </section>
+      <!-- Convert -->
+      <section id="convert" class="convert container">
+        <form class="convert-form" action="/short" method="post">
+          <div class="form-convert-field">
+            <input
+              class="convert-form-input"
+              type="text"
+              name="url"
+              id="url"
+              placeholder="Enter your URL"
+              required
+            />
+            <button class="convert-form-btn" type="submit">Short</button>
+          </div>
+        </form>
+      </section>
+      <!-- URL List Table -->
+      <section class="url-list" id="url-list">
+        <div class="table-title">
+            <h3>Data Table</h3>
+            </div>
+            <table class="table-fill">
+            <thead>
+            <tr>
+            <th class="text-left">No</th>
+            <th class="text-left">Shorts Url</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+            <tr>
+            <td class="text-left">1</td>
+            <td class="text-left">shorturl.url</td>
+            </tr>
+            <tr>
+            <td class="text-left">2</td>
+            <td class="text-left">shorturl.url</td>
+            </tr>
+            <tr>
+            <td class="text-left">3</td>
+            <td class="text-left">shorturl.url</td>
+            </tr>
+            <tr>
+            <td class="text-left">4</td>
+            <td class="text-left">shorturl.url</td>
+            </tr>
+            <tr>
+            <td class="text-left">5</td>
+            <td class="text-left">shorturl.url</td>
+            </tr>
+            </tbody>
+            </table>
+              
+            
+      </section>
+    </main>
+  </body>
 </html>
