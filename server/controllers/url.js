@@ -2,6 +2,7 @@ const { checkUrlQuery, getOriginalUrlQuery } = require('../database/queries');
 
 const redirectUrl = (req, res) => {
   const { shortUrl } = req.params;
+  if (!/^\w{6}$/.test(shortUrl)) res.status(400).send('Invalid Url');
   checkUrlQuery(shortUrl).then((exists) => {
     if (exists) {
       getOriginalUrlQuery(shortUrl).then((url) => {
