@@ -48,7 +48,7 @@ const shortenUrl = (req, res) => {
         else {
           generateShortUrl(6).then((shortUrl) => {
             addUrlQuery(userName, shortUrl, originalUrl)
-              .then(() => res.status(200).json({ shortUrl }))
+              .then(() => res.status(200).json({ short_url: shortUrl }))
               .catch(() => res.status(500).send('Database error'));
           });
         }
