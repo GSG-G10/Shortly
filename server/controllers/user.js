@@ -3,14 +3,21 @@ const {
 } = require('../database/queries');
 
 const userLogin = (req, res) => {
-  addUserQuery(req.params).then(() => res.status(200).send('User signed up')).catch(() => res.status(200).send('User logged in'));
+  const { userName } = req.body;
+  addUserQuery(userName).then(() => res.status(200).send('User signed up')).catch(() => res.status(200).send('User logged in'));
 };
 
 const getUserLinks = (req, res) => {
-  getShortUrlQuery(req.body.userName).then((data) => {
-    if (data.rows.length === 0) res.status(400).send('User doesn\'t have urls or doesn\'t exist');
+  const { userName } = req.params;
+  checkUserQuery(userName).then((exists) => {
+    if (!exists) res.status(400).send('User doesn\'t exist');
     else {
-      res.status(200).json(data.rows);
+      getShortUrlQuery(userName).then((data) => {
+        if (data.rows.length === 0) res.status(200).send('User doesn\'t have urls');
+        else {
+          res.status(200).json(data.rows);
+        }
+      });
     }
   });
 };
@@ -38,7 +45,7 @@ const shortenUrl = (req, res) => {
           generateShortUrl(6).then((shortUrl) => {
             addUrlQuery(userName, shortUrl, originalUrl)
               .then(() => res.status(200).json({ shortUrl }))
-              .catch(() => res.sendStatus(500));
+              .catch(() => res.status(500).send('Database error'));
           });
         }
       });
