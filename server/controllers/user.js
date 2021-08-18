@@ -5,8 +5,7 @@ const {
 const userLogin = (req, res) => {
   const { userName } = req.body;
   if (!/^[a-zA-Z]{3,10}[0-9]{0,10} {1}[a-zA-Z]{3,20}[0-9]{0,10}$/.test(userName)) res.status(400).json({ massege: 'Invalid userName' });
-  console.log('User Name is: ', userName);
-  addUserQuery(userName).then(() => res.status(200).json({ massege: 'User signed up' })).catch(() => res.status(200).json({ massege:'User logged in' }));
+  addUserQuery(userName).then(() => res.status(200).json({ massege: 'User signed up' })).catch(() => res.status(200).json({ massege: 'User logged in' }));
 };
 
 const getUserLinks = (req, res) => {
