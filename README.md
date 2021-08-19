@@ -1,8 +1,8 @@
-# [Shortly App](https://m7m-firstdb.herokuapp.com)
+# [Shortly App](https://shrurl.herokuapp.com/)
 ## Team Member
 * [Muath Al Khatib](https://github.com/muath-khatib)
 * [Mohammed Mansour](https://github.com/M7Mansour)
-## [Demo](https://m7m-firstdb.herokuapp.com/)
+## [Demo](https://shrurl.herokuapp.com/)
 ## About The Project
 ### Built With
 * HTML
